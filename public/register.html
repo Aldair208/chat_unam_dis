@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro - Chat UNAM DIS</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .background {
+      background-image: url('https://unam.edu.pe/wp-content/uploads/2021/06/2._INFRAESTRUCTURA_.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .container {
+      background-color: #FFFFFF;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      max-width: 100px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin: 0 0 20px 0;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input, select {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #c9d9f5;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #2C376F;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #2C376F;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #007bff;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .logo {
+        max-width: 80px;
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      input, select, button {
+        font-size: 14px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="container">
+      <img src="imagenes/logo-unam.png" alt="UNAM Logo" class="logo">
+      <h2>REGISTRATE</h2>
+      <form action="/auth/register" method="post">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="text" name="apellido" placeholder="Apellido" required>
+        <input type="text" name="dni" placeholder="DNI" required>
+        <select name="cargo" id="cargo" required>
+          <option value="">Selecciona el cargo</option>
+          <option value="Personal de Seguridad">Personal de Seguridad</option>
+          <option value="Administración">Administración</option>
+        </select>
+        <div id="ciudad-container" class="hidden">
+          <select name="ciudad" id="ciudad">
+            <option value="">Selecciona la ciudad</option>
+            <option value="Ilo">Ilo</option>
+            <option value="Moquegua">Moquegua</option>
+            <option value="Ichuña">Ichuña</option>
+            <option value="Otros">Otros</option>
+          </select>
+          <input type="text" name="otra-ciudad" id="otra-ciudad" class="hidden" placeholder="Especifica la ciudad">
+        </div>
+        <div id="seguridad-container" class="hidden">
+          <select name="seguridad" id="seguridad">
+            <option value="">Selecciona el área</option>
+            <option value="Puerta">Puerta</option>
+            <option value="Facultad">Facultad</option>
+            <option value="Edificio">Edificio</option>
+          </select>
+          <input type="text" name="detalle-seguridad" id="detalle-seguridad" class="hidden" placeholder="Especifica el área">
+        </div>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit" class="button">Registrar</button>
+      </form>
+      <a href="/auth/login"></a>
+    </div>
+  </div>
+  <script>
+    document.getElementById('cargo').addEventListener('change', function() {
+      const ciudadContainer = document.getElementById('ciudad-container');
+      const seguridadContainer = document.getElementById('seguridad-container');
+      if (this.value === 'Administración') {
+        ciudadContainer.classList.remove('hidden');
+        seguridadContainer.classList.add('hidden');
+      } else if (this.value === 'Personal de Seguridad') {
+        seguridadContainer.classList.remove('hidden');
+        ciudadContainer.classList.add('hidden');
+      } else {
+        ciudadContainer.classList.add('hidden');
+        seguridadContainer.classList.add('hidden');
+      }
+    });
+
+    document.getElementById('ciudad').addEventListener('change', function() {
+      const otraCiudad = document.getElementById('otra-ciudad');
+      if (this.value === 'Otros') {
+        otraCiudad.classList.remove('hidden');
+      } else {
+        otraCiudad.classList.add('hidden');
+      }
+    });
+
+    document.getElementById('seguridad').addEventListener('change', function() {
+      const detalleSeguridad = document.getElementById('detalle-seguridad');
+      if (this.value) {
+        detalleSeguridad.classList.remove('hidden');
+        detalleSeguridad.placeholder = `Especifica la ${this.value.toLowerCase()}`;
+      } else {
+        detalleSeguridad.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

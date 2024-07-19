@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat - Chat UNAM DIS</title>
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+  <div id="header">
+    <img src="Imagenes/logo_unam2.png" alt="UNAM Logo">
+    <h1 id="welcome-message">el cargo<br>nombre y apellido del usuario</h1>
+  </div>
+  <div id="chat-layout">
+    <div id="sidebar">
+      <button onclick="location.href='registro.html'">
+        <img src="Imagenes/icono_escaner.png" alt="Registro Icono">
+        <span>Registro Automático</span>
+      </button>
+    </div>
+    <div id="main-content">
+      <div id="chat-container">
+        <div id="chat-messages" class="chat-box"></div>
+        <div id="chat-input-container">
+          <input type="text" id="chat-input" placeholder="Escribe tu mensaje">
+          <button id="send-button">Enviar</button>
+        </div>
+        <div id="file-input-container">
+          <input type="file" id="file-input">
+          <button id="send-file-button">Enviar Archivo</button>
+        </div>
+      </div>
+      <div id="preset-buttons">
+        <button onclick="sendPresetMessage('Sujeto sospechoso')">Sujeto sospechoso</button>
+        <button onclick="sendPresetMessage('Adjunto informe')">Adjunto informe</button>
+        <button onclick="sendPresetMessage('Ingreso no autorizado')">Ingreso no autorizado</button>
+        <button onclick="sendPresetMessage('Verificación requerida')">Verificación requerida</button>
+      </div>
+      <div id="group-buttons">
+        <button onclick="joinGroup('Administración')" id="Administración">Administración</button>
+        <button onclick="joinGroup('Ilo')" id="Ilo">Ilo</button>
+        <button onclick="joinGroup('Moquegua')" id="Moquegua">Moquegua</button>
+        <button onclick="joinGroup('Ichuña')" id="Ichuña">Ichuña</button>
+        <button onclick="joinGroup('Todos')" id="Todos">Todos</button>
+      </div>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/chat.js"></script>
+  <script>
+    // Obtener parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const nombre = urlParams.get('nombre');
+    const apellido = urlParams.get('apellido');
+    const cargo = urlParams.get('cargo');
+
+    // Mostrar mensaje de bienvenida
+    document.getElementById('welcome-message').textContent = `Bienvenido ${nombre} ${apellido} - ${cargo}`;
+  </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Chat UNAM DIS</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div class="container">
+    <img src="Imagenes/logo-unam.png" alt="UNAM Logo" class="logo"> <!-- Reemplaza con el logo de UNAM -->
+    <h2> INICIO DE SESION </h2>
+    <form action="/auth/login" method="post">
+      <input type="text" name="dni" placeholder="DNI" required>
+      <div class="password-container">
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <span class="eye-icon">&#128065;</span>
+      </div>
+      <button type="submit">Ingresar</button>
+    </form>
+    <a href="/auth/register" class="forgot-password">Crear cuenta</a> <!-- Redirigir a la creación de nuevo usuario -->
+  </div>
+  <script>
+    document.querySelector('.eye-icon').addEventListener('click', function () {
+        const passwordInput = document.querySelector('input[name="password"]');
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.textContent = type === 'password' ? '👁️' : '🙈';
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://elperuano.pe/fotografia/thumbnail/2021/12/22/000143399M.jpg'); /* Reemplaza con tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+  }
+  
+  .logo {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #E8F0FE;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #c9d9f5;
+  }
+  
+  .password-container {
+    position: relative;
+  }
+  
+  input[type="password"] {
+    padding-right: 40px;
+  }
+  
+  .eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #2C376F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  .forgot-password {
+    margin-top: 10px;
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .forgot-password:hover {
+    color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+  
+    input[type="text"],
+    input[type="password"] {
+      padding: 8px;
+      margin: 8px 0;
+    }
+  
+    button {
+      padding: 8px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 10px;
+    }
+  
+    h2 {
+      font-size: 1.2em;
+    }
+  
+    input[type="text"],
+    input[type="password"] {
+      padding: 6px;
+      margin: 6px 0;
+    }
+  
+    button {
+      padding: 6px 12px;
+    }
+  }
+  
